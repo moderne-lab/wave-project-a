@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.edwardnoaland.wave</groupId>
-  <artifactId>project-a</artifactId>
+  <artifactId>wave-project-a</artifactId>
   <version>1.0.0</version>
-  <name>Wave fixture A</name>
+  <name>Wave project A</name>
   <description>Empty independent library A; direct dependencies: none.</description>
   <properties>
     <maven.compiler.release>17</maven.compiler.release>
@@ -15,6 +15,15 @@
   <dependencies>
 
   </dependencies>
+  <!-- A workspace-local artifact source, usable regardless of the caller's Maven cache. -->
+  <repositories>
+    <repository>
+      <id>wave-fixture-artifacts</id>
+      <url>file://${maven.multiModuleProjectDirectory}/../.tooling/maven-repository</url>
+      <releases><enabled>true</enabled><checksumPolicy>ignore</checksumPolicy></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+  </repositories>
   <build>
     <plugins>
       <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-clean-plugin</artifactId><version>3.4.0</version></plugin>
